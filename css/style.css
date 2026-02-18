@@ -438,10 +438,10 @@ button {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 10, 0.25) 0%,
-    rgba(10, 10, 10, 0.4) 40%,
-    rgba(10, 10, 10, 0.7) 80%,
-    rgba(10, 10, 10, 0.95) 100%
+    rgba(10, 10, 10, 0.05) 0%,
+    rgba(10, 10, 10, 0.1) 40%,
+    rgba(10, 10, 10, 0.3) 80%,
+    rgba(10, 10, 10, 0.98) 100%
   );
   pointer-events: none;
 }
@@ -494,9 +494,27 @@ button {
   );
 }
 
+/* Hero centered logo (visible on load, fades on scroll) */
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-logo img {
+  height: 100px;
+  width: auto;
+  filter: drop-shadow(0 0 40px rgba(201, 169, 110, 0.3));
+}
+
 .hero-content {
   max-width: 800px;
   padding-top: var(--nav-height);
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .hero-label {
@@ -544,6 +562,7 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  opacity: 0;
   color: var(--text-muted);
   font-size: 0.7rem;
   letter-spacing: 3px;
@@ -863,6 +882,31 @@ button {
   font-size: 0.8rem;
   color: var(--text-muted);
   margin-top: 2px;
+}
+
+/* ---------- Testimonials Dots ---------- */
+.testimonials-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.testimonials-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.testimonials-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.25);
 }
 
 /* ---------- Partners ---------- */
@@ -1743,6 +1787,10 @@ button {
     padding-top: calc(var(--nav-height) + 20px);
   }
 
+  .hero-logo img {
+    height: 70px;
+  }
+
   .hero-label {
     font-size: 0.65rem;
     letter-spacing: 3px;
@@ -1851,6 +1899,10 @@ button {
 
   .testimonial-role {
     font-size: 0.7rem;
+  }
+
+  .testimonials-dots {
+    display: flex;
   }
 
   /* --- NAVI Promo --- */

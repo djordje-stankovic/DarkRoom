@@ -190,6 +190,38 @@ document.addEventListener('DOMContentLoaded', () => {
     testimonialsWrapper.style.cursor = 'grab';
   }
 
+  // ---------- Testimonials Dot Indicators ----------
+  const dotsContainer = document.querySelector('.testimonials-dots');
+  if (testimonialsWrapper && dotsContainer) {
+    const cards = testimonialsWrapper.querySelectorAll('.testimonial-card');
+
+    // Create dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'testimonials-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
+      dot.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.testimonials-dot');
+
+    // Update active dot on scroll
+    const updateDots = () => {
+      const wrapperLeft = testimonialsWrapper.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + 16; // card width + gap
+      const activeIndex = Math.round(wrapperLeft / cardWidth);
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    };
+
+    testimonialsWrapper.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
+  }
+
   // ---------- Active Nav Link ----------
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
@@ -216,23 +248,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- Video Overlay on Scroll ----------
+  // ---------- Hero Scroll Reveal (clean video entry) ----------
+  const heroLogo = document.querySelector('.hero-logo');
+  const heroContent = document.querySelector('.hero-content');
+  const heroScrollInd = document.querySelector('.hero-scroll-indicator');
   const videoOverlay = document.querySelector('.video-overlay');
-  if (videoOverlay) {
-    window.addEventListener('scroll', () => {
+
+  if (heroContent && videoOverlay) {
+    const animateHeroScroll = () => {
       const scrolled = window.scrollY;
       const vh = window.innerHeight;
-      // Progressively darken overlay as user scrolls past hero
-      const progress = Math.min(scrolled / (vh * 1.5), 1);
-      const opacity = 0.25 + progress * 0.65;
+      const progress = scrolled / (vh * 0.5);
+
+      // Hero logo: fade out 0-50% scroll
+      if (heroLogo) {
+        const logoOpacity = Math.max(1 - progress * 2, 0);
+        heroLogo.style.opacity = logoOpacity;
+        heroLogo.style.transform = `translate(-50%, calc(-50% - ${scrolled * 0.3}px))`;
+      }
+
+      // Hero content: fade in from 20-60% scroll
+      const contentProgress = Math.max(Math.min((progress - 0.2) / 0.4, 1), 0);
+      heroContent.style.opacity = contentProgress;
+      heroContent.style.transform = `translateY(${30 * (1 - contentProgress)}px)`;
+
+      // Scroll indicator: fade in with content
+      if (heroScrollInd) {
+        heroScrollInd.style.opacity = contentProgress;
+      }
+
+      // Video overlay: starts very clean, darkens progressively
+      const overlayProgress = Math.min(scrolled / (vh * 1.5), 1);
       videoOverlay.style.background = `linear-gradient(
         to bottom,
-        rgba(10, 10, 10, ${(0.25 + progress * 0.4).toFixed(2)}) 0%,
-        rgba(10, 10, 10, ${(0.4 + progress * 0.3).toFixed(2)}) 40%,
-        rgba(10, 10, 10, ${(0.7 + progress * 0.25).toFixed(2)}) 80%,
+        rgba(10, 10, 10, ${(0.05 + overlayProgress * 0.5).toFixed(2)}) 0%,
+        rgba(10, 10, 10, ${(0.1 + overlayProgress * 0.5).toFixed(2)}) 40%,
+        rgba(10, 10, 10, ${(0.3 + overlayProgress * 0.6).toFixed(2)}) 80%,
         rgba(10, 10, 10, 0.98) 100%
       )`;
-    }, { passive: true });
+    };
+
+    window.addEventListener('scroll', animateHeroScroll, { passive: true });
+    animateHeroScroll(); // initial state
   }
 
   // ---------- Parallax Hero (fallback for pages without video) ----------
