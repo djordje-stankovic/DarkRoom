@@ -248,40 +248,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- Hero Scroll Reveal (clean video entry) ----------
+  // ---------- Hero Scroll: logo fade + overlay darken ----------
   const heroLogo = document.querySelector('.hero-logo');
-  const heroContent = document.querySelector('.hero-content');
-  const heroScrollInd = document.querySelector('.hero-scroll-indicator');
   const videoOverlay = document.querySelector('.video-overlay');
 
-  if (heroContent && videoOverlay) {
+  if (videoOverlay) {
     const animateHeroScroll = () => {
       const scrolled = window.scrollY;
       const vh = window.innerHeight;
-      const progress = scrolled / (vh * 0.5);
 
-      // Hero logo: fade out 0-50% scroll
+      // Hero logo: fade out as you scroll through first viewport
       if (heroLogo) {
-        const logoOpacity = Math.max(1 - progress * 2, 0);
-        heroLogo.style.opacity = logoOpacity;
-        heroLogo.style.transform = `translate(-50%, calc(-50% - ${scrolled * 0.3}px))`;
+        const logoFade = Math.max(1 - scrolled / (vh * 0.6), 0);
+        heroLogo.style.opacity = logoFade;
       }
 
-      // Hero content: fade in from 20-60% scroll
-      const contentProgress = Math.max(Math.min((progress - 0.2) / 0.4, 1), 0);
-      heroContent.style.opacity = contentProgress;
-      heroContent.style.transform = `translateY(${30 * (1 - contentProgress)}px)`;
-
-      // Scroll indicator: fade in with content
-      if (heroScrollInd) {
-        heroScrollInd.style.opacity = contentProgress;
-      }
-
-      // Video overlay: starts very clean, darkens progressively
-      const overlayProgress = Math.min(scrolled / (vh * 1.5), 1);
+      // Video overlay: starts very clean, darkens as you scroll deeper
+      const overlayProgress = Math.min(scrolled / (vh * 2), 1);
       videoOverlay.style.background = `linear-gradient(
         to bottom,
-        rgba(10, 10, 10, ${(0.05 + overlayProgress * 0.5).toFixed(2)}) 0%,
+        rgba(10, 10, 10, ${(0.05 + overlayProgress * 0.45).toFixed(2)}) 0%,
         rgba(10, 10, 10, ${(0.1 + overlayProgress * 0.5).toFixed(2)}) 40%,
         rgba(10, 10, 10, ${(0.3 + overlayProgress * 0.6).toFixed(2)}) 80%,
         rgba(10, 10, 10, 0.98) 100%
@@ -289,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', animateHeroScroll, { passive: true });
-    animateHeroScroll(); // initial state
+    animateHeroScroll();
   }
 
   // ---------- Parallax Hero (fallback for pages without video) ----------
