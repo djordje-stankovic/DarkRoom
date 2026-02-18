@@ -1805,13 +1805,35 @@ button {
   }
 
   /* --- Testimonials --- */
+  .testimonials-wrapper {
+    gap: 16px;
+    padding: 24px 0;
+    margin-top: 24px;
+  }
+
   .testimonial-card {
-    flex: 0 0 280px;
+    flex: 0 0 calc(100vw - 64px);
     padding: 24px;
   }
 
   .testimonial-quote {
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding-left: 16px;
+  }
+
+  .testimonial-author img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .testimonial-name {
+    font-size: 0.85rem;
+  }
+
+  .testimonial-role {
+    font-size: 0.7rem;
   }
 
   /* --- NAVI Promo --- */
@@ -2013,7 +2035,7 @@ button {
   }
 
   .testimonial-card {
-    flex: 0 0 260px;
+    flex: 0 0 calc(100vw - 48px);
     padding: 20px;
   }
 
