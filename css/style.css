@@ -43,6 +43,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -75,6 +76,11 @@ button {
   border: none;
   background: none;
   color: inherit;
+}
+
+/* ---------- Utilities ---------- */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
 }
 
 /* ---------- Preloader ---------- */
@@ -1686,6 +1692,7 @@ button {
     --nav-height: 64px;
   }
 
+  /* --- Navbar & Hamburger --- */
   .hamburger {
     display: flex;
   }
@@ -1696,11 +1703,14 @@ button {
     right: -100%;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background: var(--bg-primary);
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 32px;
     transition: right var(--transition-base);
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -1711,72 +1721,273 @@ button {
     font-size: 1.2rem;
   }
 
+  /* --- Video & Hero on mobile --- */
+  .video-sticky-bg {
+    position: relative;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .hero--video {
+    margin-top: -100vh;
+    margin-top: -100dvh;
+  }
+
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 0 16px;
+  }
+
+  .hero-content {
+    padding-top: calc(var(--nav-height) + 20px);
+  }
+
+  .hero-label {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-scroll-indicator {
+    bottom: 24px;
+  }
+
+  /* --- Service Cards --- */
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 40px;
   }
 
   .service-card {
     aspect-ratio: 16/10 !important;
+    min-height: 280px;
   }
 
+  .service-card-content {
+    padding: 20px;
+  }
+
+  .service-card-desc {
+    max-height: 60px;
+    overflow: hidden;
+  }
+
+  /* Disable 3D tilt on mobile */
+  .service-card {
+    transform-style: flat !important;
+    will-change: auto !important;
+  }
+
+  /* --- Portfolio --- */
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    margin-top: 40px;
   }
 
+  /* --- Testimonials --- */
   .testimonial-card {
-    flex: 0 0 300px;
+    flex: 0 0 280px;
+    padding: 24px;
   }
 
+  .testimonial-quote {
+    font-size: 0.9rem;
+  }
+
+  /* --- NAVI Promo --- */
+  .navi-promo-content {
+    padding: 32px 24px;
+  }
+
+  /* --- About --- */
   .about-story {
     grid-template-columns: 1fr;
   }
 
+  .about-story-text h3 {
+    font-size: 1.4rem;
+  }
+
+  /* --- Stats --- */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-item {
+    padding: 24px 16px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* --- Team --- */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* --- Work --- */
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Contact --- */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .footer-grid {
-    grid-template-columns: 1fr;
+  /* --- Service Pages --- */
+  .service-hero {
+    padding: 140px 0 60px;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .work-grid {
-    grid-template-columns: 1fr;
+  .service-hero .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
   }
 
   .service-gallery {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .service-gallery .full-width {
     grid-column: auto;
   }
 
-  .hero-title {
-    font-size: 2.2rem;
+  .service-description p {
+    font-size: 0.95rem;
   }
 
-  .hero-ctas {
+  /* --- Page Hero (inner pages) --- */
+  .page-hero {
+    padding: 140px 0 60px;
+  }
+
+  .page-hero .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  /* --- Section titles --- */
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+
+  /* --- CTA --- */
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-section p {
+    font-size: 0.95rem;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    padding: 60px 0 32px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
     flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* --- Buttons --- */
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.8rem;
+  }
+
+  /* --- Back to Top --- */
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* --- Partners --- */
+  .partners-track {
+    gap: 40px;
+  }
+
+  .partners-track span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  /* --- Lightbox --- */
+  .lightbox img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  :root {
+    --section-padding: 40px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .hero-label {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -1786,10 +1997,40 @@ button {
   }
 
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .filter-bar {
     flex-direction: column;
+  }
+
+  .service-card {
+    min-height: 240px;
+  }
+
+  .service-card-title {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 260px;
+    padding: 20px;
+  }
+
+  .navi-promo-content {
+    padding: 24px 20px;
+  }
+
+  .navi-promo-content .section-title {
+    font-size: 1.3rem;
+  }
+
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
   }
 }
