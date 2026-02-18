@@ -1768,14 +1768,8 @@ button {
 
   /* --- Video & Hero on mobile --- */
   .video-sticky-bg {
-    position: relative;
     height: 100vh;
     height: 100dvh;
-  }
-
-  .hero--video {
-    margin-top: -100vh;
-    margin-top: -100dvh;
   }
 
   .hero {
@@ -1795,10 +1789,6 @@ button {
 
   .hero-content {
     padding: 60px 0 80px;
-  }
-
-  .hero-logo img {
-    height: 70px;
   }
 
   .hero-label {
