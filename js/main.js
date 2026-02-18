@@ -248,12 +248,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- Video Overlay darken on scroll ----------
+  // ---------- Video: overlay darken + hide after wrapper ----------
   const videoOverlay = document.querySelector('.video-overlay');
-  if (videoOverlay) {
-    const animateOverlay = () => {
+  const videoWrapper = document.querySelector('.video-scroll-wrapper');
+  const videoBg = document.querySelector('.video-sticky-bg');
+  if (videoOverlay && videoWrapper && videoBg) {
+    const animateVideo = () => {
       const scrolled = window.scrollY;
       const vh = window.innerHeight;
+      const wrapperBottom = videoWrapper.offsetTop + videoWrapper.offsetHeight;
+
+      // Hide video once scrolled past wrapper
+      if (scrolled + vh > wrapperBottom) {
+        videoBg.style.opacity = '0';
+      } else {
+        videoBg.style.opacity = '1';
+      }
+
+      // Darken overlay progressively
       const progress = Math.min(scrolled / (vh * 2), 1);
       videoOverlay.style.background = `linear-gradient(
         to bottom,
@@ -263,8 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
         rgba(10, 10, 10, 0.98) 100%
       )`;
     };
-    window.addEventListener('scroll', animateOverlay, { passive: true });
-    animateOverlay();
+    window.addEventListener('scroll', animateVideo, { passive: true });
+    animateVideo();
   }
 
   // ---------- Parallax Hero (fallback for pages without video) ----------
