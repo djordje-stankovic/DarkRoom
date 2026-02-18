@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darkroom Studio — Architectural Visualization</title>
+  <meta name="description" content="A team of artists designing spaces that inspire, stories that resonate, and immersive experiences that captivate. Architectural visualization studio based in Niš, Serbia.">
+  <!-- Open Graph / Social Share -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://djordje-stankovic.github.io/DarkRoom/">
+  <meta property="og:title" content="Darkroom Studio — Architectural Visualization">
+  <meta property="og:description" content="A team of artists designing spaces that inspire, stories that resonate, and immersive experiences that captivate.">
+  <meta property="og:image" content="https://djordje-stankovic.github.io/DarkRoom/img/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Darkroom Studio — Architectural Visualization">
+  <meta name="twitter:description" content="A team of artists designing spaces that inspire, stories that resonate, and immersive experiences that captivate.">
+  <meta name="twitter:image" content="https://djordje-stankovic.github.io/DarkRoom/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-logo">Darkroom</div>
+  </div>
+
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Darkroom Studio" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+      </div>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Video Background Wrapper - sticky video behind scrolling content -->
+  <div class="video-scroll-wrapper">
+    <!-- Sticky Video Background -->
+    <div class="video-sticky-bg">
+      <video id="hero-video" autoplay muted loop playsinline
+        poster="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/e7bb2ae9-0bff-4802-bf25-af5abf16d0cc/Draft_Final_Day_low.jpg">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <!-- Hero Content (scrolls over video) -->
+    <section class="hero hero--video">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-label">Visualization &bull; Architecture &bull; Animation &bull; VR</div>
+          <h1 class="hero-title">
+            Designing spaces<br>that <span class="accent">inspire</span>
+          </h1>
+          <p class="hero-description">A team of artists crafting immersive architectural experiences — from photorealistic renderings to virtual reality walkthroughs that captivate and resonate.</p>
+          <div class="hero-ctas">
+            <a href="work.html" class="btn btn-primary">View Our Work</a>
+            <a href="contact.html" class="btn btn-outline">Request a Proposal</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll</span>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <!-- Services scrolls over the video too -->
+    <section class="section section--over-video" id="services">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">From concept to immersive experience — we bring architectural visions to life through cutting-edge visualization technology.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Renderings -->
+        <a href="services/renderings.html" class="service-card reveal reveal-delay-1">
+          <div class="service-card-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/e7bb2ae9-0bff-4802-bf25-af5abf16d0cc/Draft_Final_Day_low.jpg" alt="Renderings" loading="lazy">
+          </div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <div class="service-card-number">01</div>
+            <h3 class="service-card-title">Renderings</h3>
+            <p class="service-card-desc">Comprehensive architectural visualizations ranging from master plans to intimate interior designs. Typical turnaround: 4-6 weeks.</p>
+            <span class="service-card-link">Explore <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <!-- Animations -->
+        <a href="services/animations.html" class="service-card reveal reveal-delay-2">
+          <div class="service-card-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/116de25b-0f1c-41b0-95e2-1b33c93beadf/Rosewood+Garage+GIF.gif" alt="Animations" loading="lazy">
+          </div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <div class="service-card-number">02</div>
+            <h3 class="service-card-title">Animations</h3>
+            <p class="service-card-desc">Dynamic architectural animations that breathe life into your projects through our cinematic approach. Timeline: 8-10 weeks.</p>
+            <span class="service-card-link">Explore <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <!-- VR Tours -->
+        <a href="services/vr-tours.html" class="service-card reveal reveal-delay-3">
+          <div class="service-card-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/f0605481-3883-4ce8-b84b-c765729039b1/ue+gif.gif" alt="VR Tours" loading="lazy">
+          </div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <div class="service-card-number">03</div>
+            <h3 class="service-card-title">Virtual Reality</h3>
+            <p class="service-card-desc">Interactive VR experiences powered by Unreal Engine. Walk through spaces, adjust materials, and change lighting in real time.</p>
+            <span class="service-card-link">Explore <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <!-- NAVI -->
+        <a href="services/navi.html" class="service-card reveal reveal-delay-4">
+          <div class="service-card-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/31a65f63-7a26-4a7b-b447-101bb8bbc55d/RPC_Legacy_SouthEast_Rev04.1.jpg" alt="NAVI" loading="lazy">
+          </div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <div class="service-card-number">04</div>
+            <h3 class="service-card-title">NAVI</h3>
+            <p class="service-card-desc">Online property navigator offering interactive browsing with photo-realistic renderings and VR tours.</p>
+            <span class="service-card-link">Explore <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <!-- Cinemagraphs -->
+        <a href="services/cinemagraphs.html" class="service-card reveal reveal-delay-5">
+          <div class="service-card-bg">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/2bf78634-4c2b-4a28-8787-9113517996ff/Stef+Cinema.gif" alt="Cinemagraphs" loading="lazy">
+          </div>
+          <div class="service-card-overlay"></div>
+          <div class="service-card-content">
+            <div class="service-card-number">05</div>
+            <h3 class="service-card-title">Cinemagraphs</h3>
+            <p class="service-card-desc">Hybrid still images with subtle repeated motion — where photography and video artfully collide.</p>
+            <span class="service-card-link">Explore <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  </div><!-- /video-scroll-wrapper -->
+
+  <!-- Portfolio -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="section-label">Selected Work</span>
+          <h2 class="section-title">Our Portfolio</h2>
+        </div>
+        <a href="work.html" class="btn btn-ghost">View All Projects <span class="arrow">&rarr;</span></a>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/cca0dbbb-5796-4c24-9fa6-283ba120f653/Interior_Materials.jpg" alt="Interior Design" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/3adf467d-e413-427e-bf79-5adc8b77e71e/Residential+Island_Type03_Detail03_Rev01_300dpi.jpg" alt="Residential Island" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/53943240-eec6-411d-8b21-8cbe253e8748/43bf60166960215.64218f65966cf.jpg" alt="Architectural Rendering" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/21e8d0bb-8c7c-481c-87ee-1a6b24976646/1517e6197368293.6650861f070ac.jpg" alt="Modern Architecture" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/038621c1-583c-4eb2-816d-f57fcd88a904/EX5-+G04+Pool_R9+copy.jpg" alt="Pool Design" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/0d3a202e-c4f7-4db1-ab37-dee020a3476b/Office_Cam07.jpg" alt="Office Space" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/16ddb984-a696-4c91-9f8f-d3b2c480f3ef/Rosewood_Aerial05_Rev01+low.jpg" alt="Aerial View" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/59ccba5a-8118-4a18-9206-612cd6a53eb5/0e6f77201258309.6671764c55157.jpg" alt="Exterior Design" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1713256272241-JPS0ZD3T1G6TPC7BK73T/House2801_Hero_Rev01+Vertical+low.jpg" alt="House 2801" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+        <div class="portfolio-item reveal" data-lightbox>
+          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/b0364ad7-5c41-4b77-b98b-bb8a4be4cf3f/02.+Reception_Rev03+low.jpg" alt="Reception" loading="lazy">
+          <div class="portfolio-item-overlay"><span>View</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVI Promo -->
+  <section class="section">
+    <div class="container">
+      <div class="navi-promo reveal">
+        <div class="navi-promo-inner">
+          <div class="navi-promo-image">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/fdc7ceb7-4ca5-4e6c-87c4-897d152cf79f/Navi_filters.jpg" alt="NAVI Property Navigator" loading="lazy">
+          </div>
+          <div class="navi-promo-content">
+            <span class="section-label">NAVI</span>
+            <h2 class="section-title">Want to give your clients more?</h2>
+            <p>NAVI is your comprehensive online property navigator. Harnessing cutting-edge visualization technology, it delivers an interactive, immersive property viewing experience that brings every detail to life.</p>
+            <a href="services/navi.html" class="btn btn-primary">Elevate Your Projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+
+      <div class="testimonials-wrapper">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Darkroom Studio consistently delivers exceptional quality. Their attention to detail and ability to capture the essence of our designs is unmatched."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/619378a6-b523-415b-9da3-3868b9c6da44/Diane+Thorsen.jpg" alt="Diane Thorsen" loading="lazy">
+            <div>
+              <div class="testimonial-name">Diane Thorsen</div>
+              <div class="testimonial-role">Design Principal, Gensler</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Working with Darkroom has been a game-changer for our firm. Their visualizations help our clients truly see the potential of every project."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/b1aac9a3-640c-4e0d-8836-91bbeabd605c/Susan+LaFleur.jpg" alt="Susan LaFleur" loading="lazy">
+            <div>
+              <div class="testimonial-name">Susan LaFleur</div>
+              <div class="testimonial-role">Co-Founder, One Line Design Studio</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"The quality of work from Darkroom Studio is phenomenal. They bring our architectural concepts to life in ways we never imagined possible."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/5e3bcb93-ba2f-407a-82c5-3cfdbec967b6/TJ.jpg" alt="T.J. Sabo" loading="lazy">
+            <div>
+              <div class="testimonial-name">T.J. Sabo</div>
+              <div class="testimonial-role">Chief Creative Officer, Royal Palm Companies</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Darkroom's team goes above and beyond. Their renderings are indistinguishable from photographs and their animations tell compelling stories."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/5f583f5c-afac-4817-86ee-7795415bf9ff/Ruby.jpg" alt="Ruby Ramirez" loading="lazy">
+            <div>
+              <div class="testimonial-name">Ruby Ramirez</div>
+              <div class="testimonial-role">Creative Director, Studio Ramirez</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Outstanding collaboration from start to finish. Darkroom Studio understood our vision perfectly and delivered beyond expectations."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/901071ed-278a-463e-a888-2cb8cc6d918e/Alastair.jpg" alt="Alastair Meredith" loading="lazy">
+            <div>
+              <div class="testimonial-name">Alastair Meredith</div>
+              <div class="testimonial-role">Arvi Studios</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Professional, creative, and incredibly reliable. Darkroom has become an essential partner for all our visualization needs."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/e45793f1-019f-42a3-8f33-13a1219f2aa8/Isaac.jpg" alt="Isaac Freer" loading="lazy">
+            <div>
+              <div class="testimonial-name">Isaac Freer</div>
+              <div class="testimonial-role">Director, Growcott Freer Property Limited</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Darkroom's VR tours have transformed how we present properties to potential buyers. The immersive experience speaks for itself."</p>
+          <div class="testimonial-author">
+            <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/bfb48a23-889e-4602-8364-fb5d605264b5/Matt+Cull.jpg" alt="Matt Cull" loading="lazy">
+            <div>
+              <div class="testimonial-name">Matt Cull</div>
+              <div class="testimonial-role">Stillwater Dwellings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="section" style="padding: 0;">
+    <div class="partners-overflow">
+      <div class="partners-track">
+        <span>Royal Palm Companies</span>
+        <span>&bull;</span>
+        <span>Rilea Group</span>
+        <span>&bull;</span>
+        <span>Perkins Eastman</span>
+        <span>&bull;</span>
+        <span>Gensler</span>
+        <span>&bull;</span>
+        <span>One World Properties</span>
+        <span>&bull;</span>
+        <span>One Line Design Studio</span>
+        <span>&bull;</span>
+        <span>Red Ridge Development</span>
+        <span>&bull;</span>
+        <span>Deforma Studio</span>
+        <span>&bull;</span>
+        <span>Wicked+</span>
+        <span>&bull;</span>
+        <span>Lefferts</span>
+        <span>&bull;</span>
+        <span>Investcor</span>
+        <span>&bull;</span>
+        <span>Southern Land Company</span>
+        <span>&bull;</span>
+        <!-- Duplicate for seamless loop -->
+        <span>Royal Palm Companies</span>
+        <span>&bull;</span>
+        <span>Rilea Group</span>
+        <span>&bull;</span>
+        <span>Perkins Eastman</span>
+        <span>&bull;</span>
+        <span>Gensler</span>
+        <span>&bull;</span>
+        <span>One World Properties</span>
+        <span>&bull;</span>
+        <span>One Line Design Studio</span>
+        <span>&bull;</span>
+        <span>Red Ridge Development</span>
+        <span>&bull;</span>
+        <span>Deforma Studio</span>
+        <span>&bull;</span>
+        <span>Wicked+</span>
+        <span>&bull;</span>
+        <span>Lefferts</span>
+        <span>&bull;</span>
+        <span>Investcor</span>
+        <span>&bull;</span>
+        <span>Southern Land Company</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/2e3279b5-087b-4ca2-a8db-a353b5d80d12/Duplex+Home_Living+room_low.jpg" alt="CTA Background" loading="lazy">
+    </div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Let's Collaborate</span>
+        <h2 class="section-title">Ready to get started?</h2>
+        <p>Bring your architectural vision to life with our world-class visualization team.</p>
+        <a href="contact.html" class="btn btn-primary">Request a Proposal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/logo.png" alt="Darkroom Studio" class="footer-logo-img">
+          <p>A team of artists, designing spaces that inspire, stories that resonate, and immersive experiences that captivate.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/darkroom_graphicstudio/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.facebook.com/graphic.studio.darkroom" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.linkedin.com/company/79572184/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="https://www.pinterest.com/darkroomgraphicstudio/" target="_blank" rel="noopener" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.091.379-.293 1.194-.333 1.361-.052.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg></a>
+            <a href="https://www.behance.net/dark_room" target="_blank" rel="noopener" aria-label="Behance"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services/renderings.html">Renderings</a></li>
+            <li><a href="services/animations.html">Animations</a></li>
+            <li><a href="services/vr-tours.html">VR Tours</a></li>
+            <li><a href="services/navi.html">NAVI</a></li>
+            <li><a href="services/cinemagraphs.html">Cinemagraphs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li>47 Vozda Karadjordja</li>
+            <li>Nis, 18000, Serbia</li>
+            <li><a href="tel:+38162265651">+381 62 265 651</a></li>
+            <li><a href="mailto:office@darkroom.rs">office@darkroom.rs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Darkroom Studio. All rights reserved.</span>
+        <span>Mon–Fri: 8am – 5pm CET</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="Lightbox">
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 52 52">
+      <circle class="progress-ring" cx="26" cy="26" r="22.5"></circle>
+      <circle class="progress-fill" cx="26" cy="26" r="22.5"></circle>
+    </svg>
+    <div class="btt-inner">
+      <span class="btt-arrow">&uarr;</span>
+      <span class="btt-percent">0%</span>
+    </div>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
