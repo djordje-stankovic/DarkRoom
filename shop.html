@@ -3,30 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work — Darkroom Studio</title>
-  <meta name="description" content="Explore our portfolio of architectural visualizations, animations, VR tours, and more.">
+  <title>Shop — Darkroom Studio</title>
+  <meta name="description" content="Premium 3D models and assets for architectural visualization by Darkroom Studio.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://djordje-stankovic.github.io/DarkRoom/work.html">
-  <meta property="og:title" content="Work — Darkroom Studio">
-  <meta property="og:description" content="Explore our portfolio of architectural visualizations, animations, VR tours, and more.">
+  <meta property="og:url" content="https://djordje-stankovic.github.io/DarkRoom/shop.html">
+  <meta property="og:title" content="Shop — Darkroom Studio">
+  <meta property="og:description" content="Premium 3D models and assets for architectural visualization by Darkroom Studio.">
   <meta property="og:image" content="https://djordje-stankovic.github.io/DarkRoom/img/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .product-card {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    .product-card-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .product-card-info {
+      padding: 1.25rem 1.5rem;
+    }
+    .product-card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .product-card-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .price-free {
+      color: #4ade80;
+      font-weight: 700;
+    }
+    .price-original {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-right: 0.5rem;
+    }
+    .price-sale {
+      color: #f87171;
+      font-weight: 700;
+    }
+    .sale-badge {
+      display: inline-block;
+      background: #f87171;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .shop-banner {
+      margin-top: 4rem;
+      padding: 2rem 2.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .shop-banner p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .shop-banner a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .shop-banner a:hover {
+      border-bottom-color: var(--accent);
+    }
+    @media (max-width: 900px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 560px) {
+      .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <div class="preloader"><div class="preloader-logo">Darkroom</div></div>
   <div class="grain-overlay"></div>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Darkroom Studio" class="nav-logo-img"></a>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="work.html" class="active">Work</a>
+        <a href="work.html">Work</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html" class="btn btn-primary">Get a Quote</a>
@@ -48,138 +152,111 @@
   </nav>
   <div class="nav-backdrop"></div>
 
+  <!-- Page Hero -->
   <section class="page-hero">
     <div class="container">
-      <span class="section-label">Portfolio</span>
-      <h1 class="section-title">Our Work</h1>
-      <p class="section-subtitle">A curated selection of our architectural visualizations, animations, and immersive experiences.</p>
+      <span class="section-label">Shop</span>
+      <h1 class="section-title">3D Asset Shop</h1>
+      <p class="section-subtitle">Premium 3D models for architectural visualization</p>
     </div>
   </section>
 
+  <!-- Products -->
   <section class="section">
     <div class="container">
-      <div class="filter-bar reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="rendering">Renderings</button>
-        <button class="filter-btn" data-filter="animation">Animations</button>
-        <button class="filter-btn" data-filter="vr">VR Tours</button>
-        <button class="filter-btn" data-filter="interior">Interior</button>
-        <button class="filter-btn" data-filter="exterior">Exterior</button>
+      <div class="shop-grid">
+
+        <div class="product-card reveal reveal-delay-1">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1717076399728-PIU24UEF164FLFPKS8CX/sprinkler002_2K.jpg" alt="Free Water Sprinkles tyFlow Presets" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Free Water Sprinkles tyFlow Presets</div>
+            <div class="product-card-price price-free">FREE</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-2">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1716470262429-2OQLXWO183K44072BDVG/Vignette_Larsen+low.jpg" alt="Larsen Lounge Chair" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Larsen Lounge Chair</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-3">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692686432467-YCMHXI2QEQFQBA5Y5REB/Preview_01.jpg" alt="Nera Stool Monica Forster" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Nera Stool Monica Forster</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-1">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692860998927-L3H6CCVYNJ2I69RVBVGJ/Preview_01.jpg" alt="Nera Table Monica Forster" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Nera Table Monica Forster</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-2">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692609652290-ARGF9OEGBE0P568KUDMM/Mood_ArmchairAndLoungeBed_+Hero.jpg" alt="Mood Armchair & Lounge Bed Bundle" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Mood Armchair &amp; Lounge Bed Bundle</div>
+            <div class="product-card-price">$10.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-3">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692864638922-9CD5OJY9OSS8A99PZ8TO/Preview_01.jpg" alt="Moonlight Outdoor Candle Holders" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Moonlight Outdoor Candle Holders</div>
+            <div class="product-card-price price-free">FREE</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-1">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692611007146-CB82MRFBMR7FLU0PHEX1/1.jpg" alt="Mood Lounge Bed by Tribu" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Mood Lounge Bed by Tribu</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-2">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692609640880-0ASLOVQJWWWDUCZ335FC/1.jpg" alt="Mood Lounge Chair by Tribu" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Mood Lounge Chair by Tribu</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-3">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1689250693568-FKSC1GHD8V5HWN9VR02O/Aura+Leather+Bench+by+Life+Interiors_Render_1.jpg" alt="Aura Leather Bench" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Aura Leather Bench</div>
+            <div class="product-card-price">
+              <span class="price-original">$6.00</span>
+              <span class="price-sale">$4.00</span>
+              <span class="sale-badge">Sale</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal reveal-delay-1">
+          <img class="product-card-image" src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1692686822928-N8JECNS82OY3UVWYTYLE/Confide+in+Me_01.jpg" alt="Confide In Me" loading="lazy">
+          <div class="product-card-info">
+            <div class="product-card-name">Confide In Me</div>
+            <div class="product-card-price">$6.00</div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="work-grid">
-        <div class="work-item reveal" data-category="rendering" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/cca0dbbb-5796-4c24-9fa6-283ba120f653/Interior_Materials.jpg" alt="Interior Materials" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Interior Materials Study</div>
-            <div class="work-item-category">Rendering</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="exterior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/3adf467d-e413-427e-bf79-5adc8b77e71e/Residential+Island_Type03_Detail03_Rev01_300dpi.jpg" alt="Residential Island" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Residential Island</div>
-            <div class="work-item-category">Exterior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="rendering" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/53943240-eec6-411d-8b21-8cbe253e8748/43bf60166960215.64218f65966cf.jpg" alt="Architectural Design" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Modern Architecture</div>
-            <div class="work-item-category">Rendering</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="exterior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/21e8d0bb-8c7c-481c-87ee-1a6b24976646/1517e6197368293.6650861f070ac.jpg" alt="Modern Exterior" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Contemporary Exterior</div>
-            <div class="work-item-category">Exterior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="exterior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/038621c1-583c-4eb2-816d-f57fcd88a904/EX5-+G04+Pool_R9+copy.jpg" alt="Pool Area" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Luxury Pool Area</div>
-            <div class="work-item-category">Exterior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="interior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/0d3a202e-c4f7-4db1-ab37-dee020a3476b/Office_Cam07.jpg" alt="Office Interior" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Office Interior</div>
-            <div class="work-item-category">Interior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="rendering" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/16ddb984-a696-4c91-9f8f-d3b2c480f3ef/Rosewood_Aerial05_Rev01+low.jpg" alt="Rosewood Aerial" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Rosewood Lakehouse</div>
-            <div class="work-item-category">Rendering</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="exterior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/59ccba5a-8118-4a18-9206-612cd6a53eb5/0e6f77201258309.6671764c55157.jpg" alt="Exterior Design" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Modern Development</div>
-            <div class="work-item-category">Exterior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="rendering" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1713256272241-JPS0ZD3T1G6TPC7BK73T/House2801_Hero_Rev01+Vertical+low.jpg" alt="House 2801" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">House 2801</div>
-            <div class="work-item-category">Rendering</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="interior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/b0364ad7-5c41-4b77-b98b-bb8a4be4cf3f/02.+Reception_Rev03+low.jpg" alt="Reception" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Hotel Reception</div>
-            <div class="work-item-category">Interior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="exterior" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/1704899247136-W51PZ5BPGRYXROLOIGXS/08+Ext+Stret+View+03_Rev03+low.jpg" alt="Street View" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Street View</div>
-            <div class="work-item-category">Exterior</div>
-          </div>
-        </div>
-
-        <div class="work-item reveal" data-category="rendering" data-lightbox>
-          <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/c1b4bd63-c2fb-478e-ad89-f90c7ba47559/Lake+house_Licni+projekat_Danilo_Cam05+low.jpg" alt="Lake House" loading="lazy">
-          <div class="work-item-overlay">
-            <div class="work-item-title">Lakehouse Project</div>
-            <div class="work-item-category">Rendering</div>
-          </div>
-        </div>
+      <!-- Custom model banner -->
+      <div class="shop-banner reveal">
+        <p>Need a custom 3D model for your project? <a href="contact.html">Contact us!</a></p>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="cta-bg">
-      <img src="https://images.squarespace-cdn.com/content/v1/64ad0fe5ca961b08020bfeae/2e3279b5-087b-4ca2-a8db-a353b5d80d12/Duplex+Home_Living+room_low.jpg" alt="CTA" loading="lazy">
-    </div>
-    <div class="cta-overlay"></div>
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">Start a Project</span>
-        <h2 class="section-title">Have a project in mind?</h2>
-        <p>Let's bring your architectural vision to life together.</p>
-        <a href="contact.html" class="btn btn-primary">Request a Proposal</a>
-      </div>
     </div>
   </section>
 
@@ -231,7 +308,7 @@
       </div>
       <div class="footer-bottom">
         <span>&copy; 2024 Darkroom Studio. All rights reserved.</span>
-        <span>Mon–Fri: 8am – 5pm CET</span>
+        <span>Mon&ndash;Fri: 8am &ndash; 5pm CET</span>
       </div>
     </div>
   </footer>
