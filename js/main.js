@@ -248,34 +248,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- Hero Scroll: logo fade + overlay darken ----------
-  const heroLogo = document.querySelector('.hero-logo');
+  // ---------- Video Overlay darken on scroll ----------
   const videoOverlay = document.querySelector('.video-overlay');
-
   if (videoOverlay) {
-    const animateHeroScroll = () => {
+    const animateOverlay = () => {
       const scrolled = window.scrollY;
       const vh = window.innerHeight;
-
-      // Hero logo: fade out as you scroll through first viewport
-      if (heroLogo) {
-        const logoFade = Math.max(1 - scrolled / (vh * 0.6), 0);
-        heroLogo.style.opacity = logoFade;
-      }
-
-      // Video overlay: starts very clean, darkens as you scroll deeper
-      const overlayProgress = Math.min(scrolled / (vh * 2), 1);
+      const progress = Math.min(scrolled / (vh * 2), 1);
       videoOverlay.style.background = `linear-gradient(
         to bottom,
-        rgba(10, 10, 10, ${(0.05 + overlayProgress * 0.45).toFixed(2)}) 0%,
-        rgba(10, 10, 10, ${(0.1 + overlayProgress * 0.5).toFixed(2)}) 40%,
-        rgba(10, 10, 10, ${(0.3 + overlayProgress * 0.6).toFixed(2)}) 80%,
+        rgba(10, 10, 10, ${(0.05 + progress * 0.45).toFixed(2)}) 0%,
+        rgba(10, 10, 10, ${(0.1 + progress * 0.5).toFixed(2)}) 40%,
+        rgba(10, 10, 10, ${(0.3 + progress * 0.6).toFixed(2)}) 80%,
         rgba(10, 10, 10, 0.98) 100%
       )`;
     };
-
-    window.addEventListener('scroll', animateHeroScroll, { passive: true });
-    animateHeroScroll();
+    window.addEventListener('scroll', animateOverlay, { passive: true });
+    animateOverlay();
   }
 
   // ---------- Parallax Hero (fallback for pages without video) ----------
