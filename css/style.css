@@ -1780,21 +1780,28 @@ button {
   .service-card {
     aspect-ratio: 16/10 !important;
     min-height: 280px;
+    transform-style: flat !important;
+    will-change: auto !important;
+  }
+
+  /* Remove hover effects that break touch - tap goes straight to link */
+  .service-card:hover {
+    transform: none;
+    z-index: auto;
   }
 
   .service-card-content {
     padding: 20px;
   }
 
+  /* Always show description on mobile, no hover toggle */
   .service-card-desc {
     max-height: 60px;
     overflow: hidden;
   }
 
-  /* Disable 3D tilt on mobile */
-  .service-card {
-    transform-style: flat !important;
-    will-change: auto !important;
+  .service-card:hover .service-card-desc {
+    max-height: 60px;
   }
 
   /* --- Portfolio --- */
@@ -1802,6 +1809,16 @@ button {
     grid-template-columns: repeat(2, 1fr);
     gap: 4px;
     margin-top: 40px;
+  }
+
+  .portfolio-item-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(10,10,10,0.5) 0%, transparent 50%);
+  }
+
+  .portfolio-item-overlay span {
+    font-size: 0.65rem;
+    padding: 6px 14px;
   }
 
   /* --- Testimonials --- */
@@ -1937,18 +1954,40 @@ button {
 
   /* --- Footer --- */
   .footer {
-    padding: 60px 0 32px;
+    padding: 48px 0 24px;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+  }
+
+  .footer-heading {
+    margin-bottom: 16px;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+
+  .footer-links a,
+  .footer-links li {
+    font-size: 0.85rem;
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     text-align: center;
+    padding-top: 24px;
   }
 
   /* --- Buttons --- */
