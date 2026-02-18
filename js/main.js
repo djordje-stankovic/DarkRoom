@@ -258,8 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const vh = window.innerHeight;
       const wrapperBottom = videoWrapper.offsetTop + videoWrapper.offsetHeight;
 
-      // Hide video once scrolled past wrapper
-      if (scrolled + vh > wrapperBottom) {
+      // Hide video once scrolled well past wrapper (extra 50vh buffer)
+      const hidePoint = wrapperBottom + vh * 0.5;
+      if (scrolled + vh > hidePoint) {
         videoBg.style.opacity = '0';
       } else {
         videoBg.style.opacity = '1';
