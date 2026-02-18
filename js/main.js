@@ -51,20 +51,46 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Hamburger Menu ----------
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
+  const navBackdrop = document.querySelector('.nav-backdrop');
   if (hamburger && navLinks) {
+    const closeMenu = () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      if (navBackdrop) navBackdrop.classList.remove('visible');
+      document.body.style.overflow = '';
+    };
+
+    const openMenu = () => {
+      hamburger.classList.add('active');
+      navLinks.classList.add('open');
+      if (navBackdrop) navBackdrop.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+    };
+
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+      if (navLinks.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+    // Close on backdrop click
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMenu);
+    }
+
+    // Close on nav link click (main nav links only, not social/contact)
+    navLinks.querySelectorAll(':scope > a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
+
+    // Close menu if page scrolls while open
+    window.addEventListener('scroll', () => {
+      if (navLinks.classList.contains('open')) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 
   // ---------- Scroll Reveal ----------
